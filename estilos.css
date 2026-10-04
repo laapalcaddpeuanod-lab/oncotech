@@ -1,0 +1,350 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN DEL SISTEMA (VARIABLES Y ESTILOS BASE)
+   ========================================================================== */
+:root {
+    --azul-profundo: #0a192f;
+    --azul-secundario: #112240;
+    --celeste-tech: #00f2fe;
+    --celeste-hover: #4facfe;
+    --blanco-puro: #ffffff;
+    --texto-mutado: #a8b2d1;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transicion: all 0.3s ease;
+    --sombra-neon: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--azul-profundo);
+    color: var(--blanco-puro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transicion);
+}
+
+/* ==========================================================================
+   2. MENÚ DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
+.header-onco {
+    background-color: rgba(10, 25, 47, 0.95);
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-tech {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo-tech span {
+    color: var(--celeste-tech);
+    text-shadow: var(--sombra-neon);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-item {
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--celeste-tech);
+}
+
+/* Efecto de línea brillante debajo del menú */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--celeste-tech);
+    box-shadow: var(--sombra-neon);
+    transition: var(--transicion);
+}
+
+.nav-item:hover::after, .nav-item.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. SECCIÓN HERO (BIENVENIDA IMPACTANTE)
+   ========================================================================== */
+.hero-section {
+    min-height: calc(100vh - 80px); /* Ajusta el alto restando el header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 5%;
+    background: radial-gradient(circle at center, var(--azul-secundario) 0%, var(--azul-profundo) 100%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-tag {
+    color: var(--celeste-tech);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+    color: var(--celeste-tech);
+    background: linear-gradient(45deg, var(--celeste-tech), var(--celeste-hover));
+    background-clip: text; /* ◄ Agrega esta línea estándar aquí */
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    color: var(--texto-mutado);
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Botón Tecnológico Premium */
+.btn-premium {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--celeste-tech);
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    cursor: pointer;
+    box-shadow: var(--sombra-neon);
+    transition: var(--transicion);
+}
+
+.btn-premium:hover {
+    background-color: var(--celeste-tech);
+    color: var(--azul-profundo);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.7);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   4. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.footer-onco {
+    background-color: var(--azul-secundario);
+    padding: 2rem 5%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 242, 254, 0.05);
+    color: var(--texto-mutado);
+    font-size: 0.9rem;
+}
+
+.footer-onco p span {
+    color: var(--celeste-tech);
+}
+
+/* ==========================================================================
+   5. DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   6. CONTENEDORES MULTIMEDIA ADICIONALES
+   ========================================================================== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--blanco-puro);
+}
+
+.section-subtitle {
+    color: var(--texto-mutado);
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid responsivo para las tarjetas */
+.grid-media {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.card-tech {
+    background-color: var(--azul-secundario);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 242, 254, 0.1);
+    transition: var(--transicion);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tech:hover {
+    transform: translateY(-5px);
+    border-color: var(--celeste-tech);
+    box-shadow: var(--sombra-neon);
+}
+
+.card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body h3 {
+    margin-bottom: 1rem;
+    color: var(--celeste-tech);
+    font-size: 1.4rem;
+}
+
+/* Maquetación del reproductor de video responsivo 16:9 */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: #000;
+    margin-top: auto; /* Empuja el video al fondo de la tarjeta si hay textos de distinto tamaño */
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   7. INTERFAZ DE TRIVIA RESPONSIVA (EDUCAPLAY)
+   ========================================================================== */
+.iframe-responsive {
+    position: relative;
+    padding-bottom: 60%; /* Proporción ideal para juegos interactivos */
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background-color: var(--azul-secundario);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.iframe-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+ 
+/* ==========================================================================
+   9. COMPONENTES DIGITALES AUTOMÁTICOS (SIN IMÁGENES EXTERNAS)
+   ========================================================================== */
+.banner-ia-digital {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--azul-secundario) 0%, #1e3a8a 100%);
+    border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-ia-digital::before {
+    content: '🧠';
+    font-size: 3.5rem;
+    filter: drop-shadow(var(--sombra-neon));
+    margin-bottom: 0.5rem;
+}
+
+.banner-ia-digital span {
+    font-size: 0.8rem;
+    color: var(--celeste-tech);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Estilos para el bloque de Prevención Escolar */
+.tarjeta-prevencion {
+    background-color: var(--azul-secundario);
+    border-left: 4px solid var(--celeste-tech);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.5rem;
+}
